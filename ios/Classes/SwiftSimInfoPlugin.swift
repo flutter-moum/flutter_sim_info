@@ -1,7 +1,18 @@
 import Flutter
 import UIKit
+import CoreTelephony
 
 public class SwiftSimInfoPlugin: NSObject, FlutterPlugin {
+    
+    lazy var carrier: CTCarrier? = {
+        let networkInfo = CTTelephonyNetworkInfo()
+        if #available(iOS 12.0, *) {
+            return networkInfo.serviceSubscriberCellularProviders?.first?.value
+        } else {
+            return networkInfo.subscriberCellularProvider
+        }
+    }()
+    
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "sim_info", binaryMessenger: registrar.messenger())
     let instance = SwiftSimInfoPlugin()
@@ -9,6 +20,19 @@ public class SwiftSimInfoPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    result("iOS " + UIDevice.current.systemVersion)
+    guard let carrier = carrier else {
+        return
+    }
+    if (call.method == "allowsVOIP") {
+        result(carrier.allowsVOIP)
+    } else if (call.method == "carrierName") {
+        result(carrier.carrierName)
+    } else if (call.method == "isoCountryCode") {
+        result(carrier.isoCountryCode)
+    } else if (call.method == "mobileCountryCode") {
+        result(carrier.mobileCountryCode)
+    } else if (call.method == "mobileNetworkCode") {
+        result(carrier.mobileNetworkCode)
+    }
   }
 }
