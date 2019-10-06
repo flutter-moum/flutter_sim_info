@@ -10,4 +10,9 @@ class SimInfo {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
+
+  static Future<String> get carrierName async {
+    final String carrierName = await _channel.invokeMethod('carrierName');
+    return carrierName;
+  }
 }
