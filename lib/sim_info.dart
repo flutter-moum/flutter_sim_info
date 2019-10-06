@@ -7,7 +7,7 @@ class SimInfo {
   static const MethodChannel _channel =
       const MethodChannel('flutter.moum.sim_info');
 
-  static Future<String> get AllowsVOIP async {
+  static Future<String> get getAllowsVOIP async {
     bool value;
     try {
       if (Platform.isIOS) {
