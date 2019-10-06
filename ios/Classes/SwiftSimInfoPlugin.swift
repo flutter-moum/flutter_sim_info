@@ -21,6 +21,9 @@ public class SwiftSimInfoPlugin: NSObject, FlutterPlugin {
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     guard let carrier = carrier else {
+        result(FlutterError(code: "Sim card not detected",
+                            message: nil,
+                            details: nil))
         return
     }
     if (call.method == "allowsVOIP") {
