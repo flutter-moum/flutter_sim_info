@@ -14,7 +14,7 @@ public class SwiftSimInfoPlugin: NSObject, FlutterPlugin {
     }()
     
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "sim_info", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: "flutter.moum.sim_info", binaryMessenger: registrar.messenger())
     let instance = SwiftSimInfoPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
