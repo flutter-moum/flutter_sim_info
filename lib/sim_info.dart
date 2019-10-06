@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 class SimInfo {
   static const MethodChannel _channel =
-      const MethodChannel('sim_info');
+      const MethodChannel('flutter.moum.sim_info');
 
   static Future<String> get AllowsVOIP async {
     bool value;
@@ -80,5 +80,10 @@ class SimInfo {
     } on PlatformException catch(e) {
       return e.code;
     }
+  }
+
+  static Future<String> get carrierName async {
+    final String carrierName = await _channel.invokeMethod('carrierName');
+    return carrierName;
   }
 }

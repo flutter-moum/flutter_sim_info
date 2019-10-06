@@ -12,7 +12,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   String _allowsVOIP;
   String _carrierName;
   String _isoCountryCode;
@@ -49,16 +48,15 @@ class _MyAppState extends State<MyApp> {
           title: const Text('USIM Infomation Plugin'),
         ),
         body: Center(
-          child: Column(
-            children: <Widget>[
-              Text('VOIP : $_allowsVOIP '),
-              Text('CarrierName : $_carrierName'),
-              Text('ISO CountryCode : $_isoCountryCode'),
-              Text('Mobile CountryCode : $_mobileCountryCode'),
-              Text('Mobile NetworkCode : $_mobileNetworkCode'),
-            ],
-          )
-        ),
+            child: Column(
+          children: <Widget>[
+            Text('VOIP : $_allowsVOIP '),
+            Text('CarrierName : $_carrierName'),
+            Text('ISO CountryCode : $_isoCountryCode'),
+            Text('Mobile CountryCode : $_mobileCountryCode'),
+            Text('Mobile NetworkCode : $_mobileNetworkCode'),
+          ],
+        )),
       ),
     );
   }
