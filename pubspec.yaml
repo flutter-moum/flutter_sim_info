@@ -1,8 +1,5 @@
 name: sim_info
-description:
-A Flutter plugin for read SIM information.
-You can get SIM data for MCC, MNC, country code, etc...
-There are similarities and differences between the data available on Android and iOS. Read the usage.
+description: A Flutter plugin for read SIM information. You can get SIM data for MCC, MNC, country code, etc There are similarities and differences between the data available on Android and iOS. Read the usage.
 version: 0.0.1
 author:
   - Eungi Kim <eungikim.me@gmail.com>
