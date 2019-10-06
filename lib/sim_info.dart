@@ -82,8 +82,4 @@ class SimInfo {
     }
   }
 
-  static Future<String> get carrierName async {
-    final String carrierName = await _channel.invokeMethod('carrierName');
-    return carrierName;
-  }
 }

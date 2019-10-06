@@ -26,10 +26,10 @@ class _MyAppState extends State<MyApp> {
 
   Future<String> getUsimInfo() async {
     String allowsVOIP = await SimInfo.AllowsVOIP;
-    String carrierName = await SimInfo.AllowsVOIP;
-    String isoCountryCode = await SimInfo.AllowsVOIP;
-    String mobileCountryCode = await SimInfo.AllowsVOIP;
-    String mobileNetworkCode = await SimInfo.AllowsVOIP;
+    String carrierName = await SimInfo.carrierName;
+    String isoCountryCode = await SimInfo.getIsoCountryCode;
+    String mobileCountryCode = await SimInfo.getMobileCountryCode;
+    String mobileNetworkCode = await SimInfo.getMobileNetworkCode;
 
     setState(() {
       _allowsVOIP = allowsVOIP;

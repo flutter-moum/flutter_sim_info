@@ -59,9 +59,6 @@ public class SimInfoPlugin implements MethodCallHandler {
       case "mobileNetworkCode":
         result.success(getMobileNetworkCode());
         break;
-      case "getPlatformVersion":
-        getPlatformVersion(result);
-        break;
       default:
         result.notImplemented();
     }
@@ -99,9 +96,5 @@ public class SimInfoPlugin implements MethodCallHandler {
   private String getMccMnc() {
     return mTelephonyManager.getSimOperator();
   }
-
-
-  private void getPlatformVersion(Result result) {
-    result.success("Android " + android.os.Build.VERSION.RELEASE);
-  }
+  
 }
