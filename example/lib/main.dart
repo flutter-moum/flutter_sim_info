@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:sim_info/sim_info.dart';
 
 void main() => runApp(MyApp());
@@ -26,7 +25,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<String> getUsimInfo() async {
     String allowsVOIP = await SimInfo.AllowsVOIP;
-    String carrierName = await SimInfo.carrierName;
+    String carrierName = await SimInfo.getCarrierName;
     String isoCountryCode = await SimInfo.getIsoCountryCode;
     String mobileCountryCode = await SimInfo.getMobileCountryCode;
     String mobileNetworkCode = await SimInfo.getMobileNetworkCode;

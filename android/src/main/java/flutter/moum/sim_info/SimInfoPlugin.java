@@ -96,5 +96,5 @@ public class SimInfoPlugin implements MethodCallHandler {
   private String getMccMnc() {
     return mTelephonyManager.getSimOperator();
   }
-  
+
 }
