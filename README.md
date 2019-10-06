@@ -61,9 +61,10 @@ Dangerous permissions [READ_PHONE_STATE](https://developer.android.com/reference
 ```
 
 ## Screenshots
-
-![Android screenshot](/README/android_screenshot.jpg)
-![IOS screenshot](/README/ios_screenshot.jpg)
+<div>
+  <img width="200" src="/README/android_screenshot.jpg">
+  <img width="200" src="/README/ios_screenshot.jpg">
+</div>
 
 ## API details
 
