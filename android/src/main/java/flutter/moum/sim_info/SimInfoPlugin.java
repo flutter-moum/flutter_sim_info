@@ -29,7 +29,7 @@ public class SimInfoPlugin implements MethodCallHandler {
 
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "sim_info");
+    final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutter.moum.sim_info");
 
     channel.setMethodCallHandler(new SimInfoPlugin(registrar.activity()));
   }
@@ -37,7 +37,11 @@ public class SimInfoPlugin implements MethodCallHandler {
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     if (hasPermission(Manifest.permission.READ_PHONE_STATE)) {
-      result.error("Permission Denied", null, null);
+      result.error("PERMISSION_DENIED", null, null);
+      return;
+    }
+    if (!isSimStateReady()) {
+      result.error("SIM_STATE_NOT_READY", null, null);
       return;
     }
 
@@ -46,13 +50,16 @@ public class SimInfoPlugin implements MethodCallHandler {
         result.success(true);
         break;
       case "carrierName":
-        getCarrierName(result);
+        result.success(getCarrierName());
         break;
       case "isoCountryCode":
+        result.success(getIsoCountryCode());
         break;
       case "mobileCountryCode":
+        result.success(getMobileCountryCode());
         break;
       case "mobileNetworkCode":
+        result.success(getMobileNetworkCode());
         break;
       case "getPlatformVersion":
         getPlatformVersion(result);
@@ -68,24 +75,31 @@ public class SimInfoPlugin implements MethodCallHandler {
             ContextCompat.checkSelfPermission(mActivity, permission);
   }
 
-  private void getCarrierName(@NonNull Result result) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-      String carrierName = mTelephonyManager.getSimCarrierIdName().toString();
-      result.success(carrierName);
-    }
-  }
-  private String getIsoCountryCode() {
-    return "";
-  }
-  private String getMobileCountryCode() {
-    return "";
-  }
-  private String getMobileNetworkCode() {
-    return "";
+  private boolean isSimStateReady() {
+    return TelephonyManager.SIM_STATE_READY == mTelephonyManager.getSimState();
   }
 
-  private boolean isSimStateReady() {
-    return true;
+  private String getCarrierName() {
+    String networkOperatorName = mTelephonyManager.getNetworkOperatorName();
+    if (networkOperatorName == null) return "null";
+    return networkOperatorName;
+  }
+  private String getIsoCountryCode() {
+    String simCountryIso = mTelephonyManager.getSimCountryIso();
+    if (simCountryIso == null) return "null";
+    return simCountryIso;
+  }
+  private String getMobileCountryCode() {
+    if (getMccMnc() == null || getMccMnc().length() < 5) return "null";
+    return getMccMnc().substring(0, 3);
+  }
+  private String getMobileNetworkCode() {
+    if (getMccMnc() == null || getMccMnc().length() < 5) return "null";
+    return getMccMnc().substring(3);
+  }
+
+  private String getMccMnc() {
+    return mTelephonyManager.getSimOperator();
   }
 
 
