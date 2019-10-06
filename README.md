@@ -2,8 +2,6 @@
 # flutter_sim_info
 
 
-[![pub package](https://img.shields.io/pub/v/url_launcher.svg)](https://pub.dartlang.org/packages/url_launcher) <- 이런것도 달아주고
-
 A Flutter plugin for read SIM information.  
 You can get SIM data for MCC, MNC, country code, etc...
 
@@ -64,7 +62,8 @@ Dangerous permissions [READ_PHONE_STATE](https://developer.android.com/reference
 
 ## Screenshots
 
-스크린샷 몇장 넣어줌(gif ??)
+![Android screenshot](/README/android_screenshot.jpg)
+![IOS screenshot](/README/ios_screenshot.jpg)
 
 ## API details
 
