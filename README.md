@@ -3,14 +3,20 @@
 
 
 A Flutter plugin for read SIM information.  
-You can get SIM data for MCC, MNC, country code, etc...
+You can get SIM data for MCC, MNC, country name, etc...
 
 *Note*: There are similarities and differences between the data available on Android and iOS. Read the usage.
 
 ## Usage
 
 ### Import the package
-To use this plugin, follow the [plugin installation instructions](https://pub.dev/packages/flutter_sim_info#-installing-tab-).
+In your flutter project add the dependency:
+```yml
+dependencies:
+  ...
+  sim_info: ^0.0.1
+```
+Or check the [installing page](https://pub.dev/packages/sim_info#-installing-tab-).
 
 ### Use the plugin
 Add the following import to your Dart code:
@@ -77,4 +83,4 @@ to send feedback or report a bug. Thank you!
 
 ## License
 
-[MIT](https://github.com/flutter-moum/flutter_sim_info/issues/new) license.
+[MIT](https://mit-license.org) license.
