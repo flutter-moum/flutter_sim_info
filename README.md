@@ -67,10 +67,7 @@ Dangerous permissions [READ_PHONE_STATE](https://developer.android.com/reference
 ```
 
 ## Screenshots
-<div>
-  <img width="300" src="/README/screenshot.png">
-</div>
-![example_screenshot_](https://raw.githubusercontent.com/flutter-moum/flutter_sim_info/master/README/screenshot.jpg)
+![screenshot](https://user-images.githubusercontent.com/14200324/66580790-eb42a000-ebb9-11e9-8a26-6c95cf2afd83.png)
 
 ## API details
 
