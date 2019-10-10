@@ -16,7 +16,7 @@ dependencies:
   ...
   sim_info: ^0.0.1
 ```
-Or check the [installing page](https://pub.dev/packages/sim_info#-installing-tab-).
+check it out the [installing page](https://pub.dev/packages/sim_info#-installing-tab-).
 
 ### Use the plugin
 Add the following import to your Dart code:
