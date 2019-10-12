@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:sim_info/sim_info.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,25 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    getUsimInfo();
+
+//    var permissionNames = await Permission.requestPermissions([PermissionName.Calendar, PermissionName.Camera]);
+
+//    Permission.openSettings;
+    if (hasPermission()) {
+      getUsimInfo();
+    } else {
+    }
+  }
+
+  Future<bool> hasPermission() async {
+    PermissionStatus permission = await PermissionHandler().checkPermissionStatus(PermissionGroup.contacts);
+    return permission.value == PermissionStatus.granted.value;
+
+  }
+  
+  Future<void> requestPermission() async {
+    Map<PermissionGroup, PermissionStatus> permissions = await PermissionHandler().requestPermissions([PermissionGroup.contacts]);
+    permissions.forEach(f)
   }
 
   Future<void> getUsimInfo() async {
