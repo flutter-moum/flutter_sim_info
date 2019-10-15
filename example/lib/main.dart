@@ -19,10 +19,10 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    getUsimInfo();
+    getSimInfo();
   }
 
-  Future<void> getUsimInfo() async {
+  Future<void> getSimInfo() async {
     String allowsVOIP = await SimInfo.getAllowsVOIP;
     String carrierName = await SimInfo.getCarrierName;
     String isoCountryCode = await SimInfo.getIsoCountryCode;
