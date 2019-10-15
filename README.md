@@ -37,10 +37,10 @@ Use below to get SIM data:
   @override
   void initState() {
     super.initState();
-    getUsimInfo();
+    getSimInfo();
   }
 
-  void getUsimInfo() async {
+  void getSimInfo() async {
     String allowsVOIP = await SimInfo.getAllowsVOIP;
     String carrierName = await SimInfo.getCarrierName;
     String isoCountryCode = await SimInfo.getIsoCountryCode;
@@ -61,9 +61,7 @@ Dangerous permissions [READ_PHONE_STATE](https://developer.android.com/reference
 ```dart
 "PERMISSION_DENIED" // In android, you use methods before get permission.
 
-"SIM_STATE_NOT_READY" // In android, cannot found SIM card in your device.
-
-"Sim card not detected" // In iOS, cannot found SIM card in your device.
+"SIM_STATE_NOT_READY" // In both, cannot found SIM card in your device.
 ```
 
 ## Screenshots
