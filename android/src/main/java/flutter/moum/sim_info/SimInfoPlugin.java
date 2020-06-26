@@ -34,10 +34,6 @@ public class SimInfoPlugin implements MethodCallHandler {
 
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
-    if (hasPermission(Manifest.permission.READ_PHONE_STATE)) {
-      result.error("PERMISSION_DENIED", null, null);
-      return;
-    }
     if (!isSimStateReady()) {
       result.error("SIM_STATE_NOT_READY", null, null);
       return;
@@ -62,12 +58,6 @@ public class SimInfoPlugin implements MethodCallHandler {
       default:
         result.notImplemented();
     }
-  }
-
-  @SuppressWarnings("SameParameterValue")
-  private boolean hasPermission(String permission) {
-    return PackageManager.PERMISSION_DENIED ==
-            ContextCompat.checkSelfPermission(mActivity, permission);
   }
 
   private boolean isSimStateReady() {
