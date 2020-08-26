@@ -34,10 +34,10 @@ public class SimInfoPlugin implements MethodCallHandler {
 
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
-    if (hasPermission(Manifest.permission.READ_PHONE_STATE)) {
-      result.error("PERMISSION_DENIED", null, null);
-      return;
-    }
+//    if (hasPermission(Manifest.permission.READ_PHONE_STATE)) {
+//      result.error("PERMISSION_DENIED", null, null);
+//      return;
+//    }
     if (!isSimStateReady()) {
       result.error("SIM_STATE_NOT_READY", null, null);
       return;
