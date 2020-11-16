@@ -1,3 +1,5 @@
+## 0.1.2
+- Android Permission Related Updates
 ## 0.1.1
 - Update README.md
 ## 0.1.0
