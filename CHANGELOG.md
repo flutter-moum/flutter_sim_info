@@ -1,3 +1,5 @@
+## 0.1.3
+- Fixed library bug
 ## 0.1.2
 - Android Permission Related Updates
 ## 0.1.1
