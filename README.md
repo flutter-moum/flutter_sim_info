@@ -14,7 +14,7 @@ In your flutter project add the dependency:
 ```yml
 dependencies:
   ...
-  sim_info: ^0.1.1
+  sim_info: ^0.1.2
 ```
 check it out the [installing page](https://pub.dev/packages/sim_info#-installing-tab-).
 
