@@ -10,11 +10,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _allowsVOIP;
-  String _carrierName;
-  String _isoCountryCode;
-  String _mobileCountryCode;
-  String _mobileNetworkCode;
+  String? _allowsVOIP;
+  String? _carrierName;
+  String? _isoCountryCode;
+  String? _mobileCountryCode;
+  String? _mobileNetworkCode;
 
   @override
   void initState() {
@@ -24,10 +24,10 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> getSimInfo() async {
     String allowsVOIP = await SimInfo.getAllowsVOIP;
-    String carrierName = await SimInfo.getCarrierName;
-    String isoCountryCode = await SimInfo.getIsoCountryCode;
-    String mobileCountryCode = await SimInfo.getMobileCountryCode;
-    String mobileNetworkCode = await SimInfo.getMobileNetworkCode;
+    String? carrierName = await SimInfo.getCarrierName;
+    String? isoCountryCode = await SimInfo.getIsoCountryCode;
+    String? mobileCountryCode = await SimInfo.getMobileCountryCode;
+    String? mobileNetworkCode = await SimInfo.getMobileNetworkCode;
 
     setState(() {
       _allowsVOIP = allowsVOIP;
