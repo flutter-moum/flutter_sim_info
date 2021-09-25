@@ -28,11 +28,11 @@ import 'package:sim_info/sim_info.dart';
 Use below to get SIM data:
 
 ```dart
-  String _allowsVOIP;
-  String _carrierName;
-  String _isoCountryCode;
-  String _mobileCountryCode;
-  String _mobileNetworkCode;
+  String? _allowsVOIP;
+  String? _carrierName;
+  String? _isoCountryCode;
+  String? _mobileCountryCode;
+  String? _mobileNetworkCode;
 
   @override
   void initState() {
@@ -41,11 +41,11 @@ Use below to get SIM data:
   }
 
   void getSimInfo() async {
-    String allowsVOIP = await SimInfo.getAllowsVOIP;
-    String carrierName = await SimInfo.getCarrierName;
-    String isoCountryCode = await SimInfo.getIsoCountryCode;
-    String mobileCountryCode = await SimInfo.getMobileCountryCode;
-    String mobileNetworkCode = await SimInfo.getMobileNetworkCode;
+    String? allowsVOIP = await SimInfo.getAllowsVOIP;
+    String? carrierName = await SimInfo.getCarrierName;
+    String? isoCountryCode = await SimInfo.getIsoCountryCode;
+    String? mobileCountryCode = await SimInfo.getMobileCountryCode;
+    String? mobileNetworkCode = await SimInfo.getMobileNetworkCode;
   }
 ```
 [Full list of available SIM data](https://github.com/flutter-moum/flutter_sim_info/wiki).
