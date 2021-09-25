@@ -14,12 +14,12 @@ dependencies:
   cupertino_icons: ^1.0.3
   permission_handler: ^8.1.6
 
+  sim_info:
+    path: ../
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  sim_info:
-    path: ../
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
